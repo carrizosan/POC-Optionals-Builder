@@ -16,7 +16,7 @@ public class Main {
         events = Arrays.asList(new Event.BuilderEvent().id(1).name("Lolapalloza").location(noCityLoc).build(),
                             new Event.BuilderEvent().id(2).name("Futbol para todos").location(l).build());
 
-        Optional<Event> message = Optional.ofNullable(Event.getEventById(2, events));
+        Optional<Event> message = Optional.ofNullable(Event.getEventById(3, events));
         if(message.isPresent()){
             System.out.println(message.map(Event::getLocation)
                                     .map(Location::getCity)

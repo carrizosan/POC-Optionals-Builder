@@ -2,6 +2,7 @@ import jdk.nashorn.internal.objects.annotations.ScriptClass;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 public class Event {
 
@@ -43,10 +44,10 @@ public class Event {
 
     @Override
     public String toString() {
-        return "Event{" +
-                "id=" + id +
+        return /*"Event*/"{" +
+                /*"id=" + id +*/
                 ", name='" + name + '\'' +
-                ", location=" + location +
+                /*", location=" + location +*/
                 '}';
     }
 
@@ -59,6 +60,10 @@ public class Event {
         }
         return null;
         //throw new NoSuchElementException("No existe un evento para el id ingresado");
+    }
+
+    public static List<Event> getFirstFive(List<Event> events) {
+        return events.stream().limit(5).collect(Collectors.toList());
     }
 
     public static class BuilderEvent {
